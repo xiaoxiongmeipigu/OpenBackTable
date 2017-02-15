@@ -20,6 +20,7 @@ import com.yigu.openbacktable.R;
 import com.yigu.openbacktable.base.BaseActivity;
 import com.yigu.openbacktable.util.ControllerUtil;
 import com.yigu.openbacktable.view.HomeSliderLayout;
+import com.yigu.openbacktable.widget.MainAlertDialog;
 import com.yigu.updatelibrary.UpdateFunGo;
 import com.yigu.updatelibrary.config.DownloadKey;
 import com.yigu.updatelibrary.config.UpdateKey;
@@ -48,6 +49,8 @@ public class MainActivity extends BaseActivity {
     TextView tvRight;
     private DbManager db;
 
+    MainAlertDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +61,7 @@ public class MainActivity extends BaseActivity {
             setContentView(R.layout.activity_main);
             ButterKnife.bind(this);
             initView();
+            initListener();
             load();
         }
     }
@@ -69,11 +73,35 @@ public class MainActivity extends BaseActivity {
         DbManager.DaoConfig daoConfig = new DbManager.DaoConfig().setDbName("openback").setDbDir(new File(FileUtil.getFolderPath(this, FileUtil.TYPE_DB)));
         db = x.getDb(daoConfig);
 
+        if (dialog == null) {
+            dialog = new MainAlertDialog(this);
+            dialog.setLeftBtnText("取消").setRightBtnText("确认").setTitle("确认退出当前账号吗？");
+        }
+
+    }
+
+    private void initListener(){
+        dialog.setLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.setRightClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userSP.clearUserData();
+                dialog.dismiss();
+                ControllerUtil.go2Login();
+                finish();
+
+            }
+        });
     }
 
     private void load(){
         showLoading();
-        CommonApi.loadResources(this, userSP.getUserBean().getUSER_ID(), new RequestCallback<String>() {
+        CommonApi.loadResources(this, new RequestCallback<String>() {
             @Override
             public void success(String success) {
                 hideLoading();
@@ -81,12 +109,12 @@ public class MainActivity extends BaseActivity {
                 if(null!=userSP.getResource()){
                     JSONObject jsonObject = JSONObject.parseObject(userSP.getResource());
 
-                    List<MapiResourceResult> list = JSON.parseArray(jsonObject.getJSONObject("data").getJSONArray("version").toJSONString(), MapiResourceResult.class);
-                    if(null!=list&&!list.isEmpty())
-                        checkVersion(list.get(0));
-                    List<MapiResourceResult> images = JSON.parseArray(jsonObject.getJSONObject("data").getJSONArray("poster").toJSONString(),  MapiResourceResult.class);
+                    MapiResourceResult mapiResourceResult = JSON.parseObject(jsonObject.getJSONObject("data").toJSONString(), MapiResourceResult.class);
+                    if(null!=mapiResourceResult)
+                        checkVersion(mapiResourceResult);
+                   /* List<MapiResourceResult> images = JSON.parseArray(jsonObject.getJSONObject("data").getJSONArray("poster").toJSONString(),  MapiResourceResult.class);
                     if(null!=images&&!images.isEmpty())
-                        homeSliderLayout.load(images);
+                        homeSliderLayout.load(images);*/
 
 
 
@@ -161,12 +189,16 @@ public class MainActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_right:
+                dialog.show();
                 break;
             case R.id.ll_buy:
+                ControllerUtil.go2UnitOrder();
                 break;
             case R.id.ll_order:
+                ControllerUtil.go2IntentList();
                 break;
             case R.id.ll_up:
+                ControllerUtil.go2Upload();
                 break;
         }
     }

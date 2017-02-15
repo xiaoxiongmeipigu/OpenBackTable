@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yigu.openbacktable.activity.upload.UploadActivity"
+    android:orientation="vertical"
+    >
+
+    <include
+        layout="@layout/lay_header"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="38dp"
+            android:layout_marginRight="38dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_height_40dp"
+                android:background="@drawable/rect_stroke_round_4_gray__width_1"
+                android:gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                >
+
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:id="@+id/spinner"
+                    android:popupBackground="#ffffff"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/down"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/typeLL"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_height_40dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/rect_stroke_round_4_gray__width_1"
+                >
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:textColorHint="@color/light_gray"
+                    android:textColor="@color/shop_black"
+                    android:textSize="@dimen/text_small"
+                    android:hint="请选择菜品分类"
+                    android:paddingLeft="17dp"
+                    android:gravity="center_vertical"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/down"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_height_40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/rect_stroke_round_4_gray__width_1"
+                android:gravity="center_vertical"
+                android:layout_marginTop="25dp"
+                >
+
+                <TextView
+                    android:id="@+id/date_tv"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:textSize="@dimen/text_small"
+                    android:textColor="@color/shop_black"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:hint="请选择上架日期"
+                    android:textColorHint="@color/light_gray"
+                    android:paddingLeft="17dp"
+                    android:gravity="center_vertical"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/date_icon"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_time"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_height_40dp"
+                android:orientation="horizontal"
+                android:background="@drawable/rect_stroke_round_4_gray__width_1"
+                android:gravity="center_vertical"
+                android:layout_marginTop="25dp"
+                >
+
+                <TextView
+                    android:id="@+id/tiem_tv"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:textSize="@dimen/text_small"
+                    android:textColor="@color/shop_black"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:hint="请选择用餐时间"
+                    android:textColorHint="@color/light_gray"
+                    android:paddingLeft="17dp"
+                    android:gravity="center_vertical"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/down"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_height_40dp"
+                style="@style/editViewStyle"
+                android:hint="请输入菜品名称"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/rect_stroke_round_4_gray__width_1"
+                android:paddingLeft="17dp"
+                />
+
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_height_40dp"
+                style="@style/editViewStyle"
+                android:hint="请输入菜品价格"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/rect_stroke_round_4_gray__width_1"
+                android:paddingLeft="17dp"
+                android:inputType="numberDecimal"
+                />
+
+            <LinearLayout
+                android:id="@+id/imageLL"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/text_height_40dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/rect_stroke_round_4_gray__width_1"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/light_gray"
+                    android:textSize="@dimen/text_small"
+                    android:text="请上传菜品图片"
+                    android:paddingLeft="17dp"
+                    android:gravity="center_vertical"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/image"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    />
+
+            </LinearLayout>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/image"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_vertical"
+                fresco:fadeDuration="2000"
+                fresco:placeholderImage="@mipmap/default_item"
+                fresco:placeholderImageScaleType="fitCenter"
+                fresco:progressBarAutoRotateInterval="2000"
+                fresco:progressBarImage="@mipmap/progress"
+                fresco:progressBarImageScaleType="centerInside"
+                fresco:retryImageScaleType="centerCrop"
+                android:visibility="gone"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

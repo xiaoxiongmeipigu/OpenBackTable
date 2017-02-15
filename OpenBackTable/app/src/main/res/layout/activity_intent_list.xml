@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.yigu.openbacktable.activity.intent.IntentListActivity"
+    android:orientation="vertical"
+    android:background="@color/divider_line"
+    >
+
+    <include
+        layout="@layout/lay_header"
+        />
+
+    <com.yigu.openbacktable.widget.BestSwipeRefreshLayout
+        android:id="@+id/swipRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+    </com.yigu.openbacktable.widget.BestSwipeRefreshLayout>
+
+</LinearLayout>

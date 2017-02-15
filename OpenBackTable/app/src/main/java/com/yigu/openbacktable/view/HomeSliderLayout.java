@@ -79,7 +79,7 @@ public class HomeSliderLayout extends RelativeLayout {
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ControllerUtil.go2WebView(list.get((Integer) v.getTag()).getUrl(),"",false);
+                    ControllerUtil.go2WebView(list.get((Integer) v.getTag()).getUrl(),"网页详情",false);
                 }
             });
             sliderViewList.add(view);

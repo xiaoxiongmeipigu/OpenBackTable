@@ -21,23 +21,56 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity"
+        <activity
+            android:name=".activity.MainActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.LoginActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
+        <activity
+            android:name=".activity.order.UnitOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.order.OrderListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.order.OrderDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.purcase.PurcaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.pay.PaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.order.OrderCompleteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.webview.WebviewControlActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.intent.IntentListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.intent.IntentDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.upload.UploadActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden"
+            />
+        <!-- 图片裁剪 -->
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity"
+            />
     </application>
 
 </manifest>

@@ -41,6 +41,8 @@ public class WebviewControlActivity extends BaseActivity {
     TextView center;
     @Bind(R.id.lay_header)
     RelativeLayout layHeader;
+    @Bind(R.id.iv_right_two)
+    ImageView ivRightTwo;
 
     private String title;
 //    private WebBroadCast webBroadCast;
@@ -66,6 +68,7 @@ public class WebviewControlActivity extends BaseActivity {
             layHeader.setVisibility(View.GONE);
         else
              center.setText(title);
+
 
         WebSettings webSetting = webview.getSettings();
         webSetting.setAllowFileAccess(true);

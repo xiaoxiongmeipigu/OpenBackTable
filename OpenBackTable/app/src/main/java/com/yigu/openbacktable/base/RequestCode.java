@@ -12,7 +12,7 @@ public class RequestCode {
     public static final int search_campaign = 0x05;
     public static final int order_detail = 0x06;
     public static final int purcase_list = 0x07;
-    public static final int assign_license_person = 0x07;
+    public static final int intent_list = 0x08;
     public static final int sel_otherPerson = 0x08;
     public static final int add_request = 0x09;
     public static final int complete_request = 0x10;
